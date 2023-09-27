@@ -1,3 +1,21 @@
 .main {
   flex-grow: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.imageContainer {
+  position: relative;
+  width: 33%;
+}
+
+.imagePlanet {
+  object-fit: cover;
+  object-position: right;
+}
+
+.asteroids {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

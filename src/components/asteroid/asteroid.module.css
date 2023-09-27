@@ -1,0 +1,57 @@
+.container {
+  margin: 5px 0;
+  font-size: 24px;
+}
+
+.approach_container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.approach_date {
+  padding: 20px 0;
+}
+
+.approach {
+  position: relative;
+  border-bottom: 2px solid var(--approach_arrey_color);
+  padding-bottom: 0.6em;
+}
+
+.approach::before,
+.approach::after {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: -6px;
+  border: var(--approach_arrey_width) solid transparent;
+}
+
+.approach::before {
+  border-left: 0;
+  border-right-color: var(--approach_arrey_color);
+  left: -1px;
+}
+
+.approach::after {
+  border-right: 0;
+  border-left-color: var(--approach_arrey_color);
+  right: -1px;
+}
+
+.asteroid_icon {
+  align-self: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.button {
+  width: 90px;
+  height: 24px;
+  border: none;
+  border-radius: 16px;
+  background: #f86600;
+  color: white;
+  cursor: pointer;
+}

@@ -4,6 +4,11 @@
   padding: 0;
 }
 
+:root {
+  --approach_arrey_color: grey;
+  --approach_arrey_width: 5px;
+}
+
 html,
 body {
   height: 100%;
@@ -14,6 +19,8 @@ body {
 body {
   display: flex;
   flex-direction: column;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 a {
