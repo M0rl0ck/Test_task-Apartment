@@ -30,12 +30,17 @@ function Asteroid({ asteroid, getNewAsteroids, isLast }: IAsteroid) {
     if (!asterRef?.current) {
       return;
     }
-    const observer = new IntersectionObserver(([entry]) => {
-      if (isLast && entry.isIntersecting) {
-        getNewAsteroids();
-        observer.unobserve(entry.target);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (isLast && entry.isIntersecting) {
+          getNewAsteroids();
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        rootMargin: "50px",
       }
-    });
+    );
 
     observer.observe(asterRef.current);
   }, [getNewAsteroids, isLast]);

@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import styles from "./page.module.css";
-import IAsteroidApproach from "../interfaces/IAsteroidApproach";
+import IAsteroidApproach from "../../interfaces/IAsteroidApproach";
 import { useCallback, useEffect, useState } from "react";
 import Asteroid from "@/components/asteroid/asteroid";
 import { getDateString, increaseDate } from "@/utils/getDate";
+import Loading from "@/components/loading/Loading";
 
 export default function Home() {
   const [data, setData] = useState<IAsteroidApproach[]>([]);
@@ -35,30 +35,18 @@ export default function Home() {
 
   return (
     <>
-      <main className={styles.main}>
-        <div className={styles.imageContainer}>
-          <Image
-            className={styles.imagePlanet}
-            src="/planeta.png"
-            alt="planeta"
-            fill
-            priority
-          ></Image>
-        </div>
-        <div className={styles.asteroids}>
-          <p>list of asteroids</p>
-          {data.map((asteroid: IAsteroidApproach, index) => (
-            <Asteroid
-              key={asteroid.id}
-              asteroid={asteroid}
-              getNewAsteroids={newAsteruids}
-              isLast={index === data.length - 1}
-            />
-          ))}
-          {isLoading && <h2>Loading...</h2>}
-        </div>
-        <div>Buttons</div>
-      </main>
+      <div className={styles.asteroids}>
+        {data.map((asteroid: IAsteroidApproach, index) => (
+          <Asteroid
+            key={asteroid.id}
+            asteroid={asteroid}
+            getNewAsteroids={newAsteruids}
+            isLast={index === data.length - 1}
+          />
+        ))}
+        {isLoading && <Loading />}
+      </div>
+      <div>Buttons</div>
     </>
   );
 }

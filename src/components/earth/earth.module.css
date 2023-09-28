@@ -1,0 +1,10 @@
+.imageContainer {
+  position: relative;
+
+  height: calc(100vh - 120px);
+}
+
+.imagePlanet {
+  width: auto;
+  height: calc(100vh - 120px);
+}
