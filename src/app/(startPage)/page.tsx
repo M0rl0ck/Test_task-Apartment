@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 import Asteroid from "@/components/asteroid/asteroid";
 import { getDateString, increaseDate } from "@/utils/getDate";
 import Loading from "@/components/loading/Loading";
+import Cart from "@/components/cart/Cart";
 
 export default function Home() {
   const [data, setData] = useState<IAsteroidApproach[]>([]);
@@ -46,7 +47,7 @@ export default function Home() {
         ))}
         {isLoading && <Loading />}
       </div>
-      <div>Buttons</div>
+      <Cart />
     </>
   );
 }

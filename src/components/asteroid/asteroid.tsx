@@ -4,6 +4,7 @@ import Image from "next/image";
 import IAsteroidApproach from "@/interfaces/IAsteroidApproach";
 import styles from "./asteroid.module.css";
 import React, { useEffect, useRef } from "react";
+import { getFormatDateString } from "@/utils/getDate";
 
 interface IAsteroid {
   asteroid: IAsteroidApproach;
@@ -14,11 +15,7 @@ interface IAsteroid {
 function Asteroid({ asteroid, getNewAsteroids, isLast }: IAsteroid) {
   const approach = asteroid.close_approach_data[0];
   const date = new Date(approach.close_approach_date);
-  const dateString = date.toLocaleString("ru-RU", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+  const dateString = getFormatDateString(date);
   const diametr = Math.ceil(
     asteroid.estimated_diameter.meters.estimated_diameter_min
   );

@@ -51,7 +51,13 @@
   height: 24px;
   border: none;
   border-radius: 16px;
+  background: rgba(248, 102, 0, 0.15);
+  color: #f86600;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.button:hover {
   background: #f86600;
   color: white;
-  cursor: pointer;
 }
