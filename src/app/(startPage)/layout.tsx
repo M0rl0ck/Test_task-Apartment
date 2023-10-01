@@ -1,6 +1,7 @@
 import Earth from "@/components/earth/Earth";
 import styles from "./layout.module.css";
 import Header from "@/components/header/header";
+import { CartDataContextProvider } from "@/context/Context";
 
 export default function StartLayout({
   children,
@@ -12,7 +13,7 @@ export default function StartLayout({
       <Header />
       <main className={styles.main}>
         <Earth />
-        {children}
+        <CartDataContextProvider>{children}</CartDataContextProvider>
       </main>
     </>
   );

@@ -1,6 +1,5 @@
 .container {
   margin: 5px 0;
-  font-size: 24px;
 }
 
 .approach_container {
@@ -10,6 +9,7 @@
 
 .approach_date {
   padding: 20px 0;
+  font-size: 24px;
 }
 
 .approach {
@@ -46,6 +46,10 @@
   margin-right: 10px;
 }
 
+.diametr {
+  font-size: 12px;
+}
+
 .button {
   width: 90px;
   height: 24px;
@@ -57,7 +61,13 @@
   transition: all 0.4s;
 }
 
-.button:hover {
+.button.active {
+  color: #f5ded9;
+  transition: all 0.4s;
+}
+
+.button:hover,
+.button.active :hover {
   background: #f86600;
   color: white;
 }
