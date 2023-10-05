@@ -3,22 +3,32 @@
 import Image from "next/image";
 import IAsteroidApproach from "@/interfaces/IAsteroidApproach";
 import styles from "./asteroid.module.css";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { getFormatDateString } from "@/utils/getDate";
+import { getDistance } from "@/utils/getDistance";
+import { useRouter } from "next/navigation";
 
 interface IAsteroid {
   asteroid: IAsteroidApproach;
   getNewAsteroids: () => void;
   isLast: boolean;
+  isLun: boolean;
+  cartData: IAsteroidApproach[];
+  callbuck: (asteroid: IAsteroidApproach) => void;
 }
 
-function Asteroid({ asteroid, getNewAsteroids, isLast }: IAsteroid) {
+function Asteroid({
+  asteroid,
+  getNewAsteroids,
+  isLast,
+  isLun,
+  cartData,
+  callbuck,
+}: IAsteroid) {
+  const router = useRouter();
+  const [isInCart, setIsInCart] = useState<boolean>(false);
   const approach = asteroid.close_approach_data[0];
-  const date = new Date(approach.close_approach_date);
-  const dateString = date.toLocaleString("ru-RU", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
+  const dateString = getFormatDateString(approach.close_approach_date);
   const diametr = Math.ceil(
     asteroid.estimated_diameter.meters.estimated_diameter_min
   );
@@ -27,25 +37,39 @@ function Asteroid({ asteroid, getNewAsteroids, isLast }: IAsteroid) {
   const asterRef = useRef(null);
 
   useEffect(() => {
+    setIsInCart(cartData.some((el) => el.id === asteroid.id));
+  }, [cartData]);
+
+  useEffect(() => {
     if (!asterRef?.current) {
       return;
     }
-    const observer = new IntersectionObserver(([entry]) => {
-      if (isLast && entry.isIntersecting) {
-        getNewAsteroids();
-        observer.unobserve(entry.target);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (isLast && entry.isIntersecting) {
+          getNewAsteroids();
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        rootMargin: "50px",
       }
-    });
+    );
 
     observer.observe(asterRef.current);
   }, [getNewAsteroids, isLast]);
 
   return (
     <div className={styles.container} ref={asterRef}>
-      <h3 className={styles.approach_date}>{dateString}</h3>
+      <h3
+        className={styles.approach_date}
+        onClick={() => router.push(`/${asteroid.id}`)}
+      >
+        {dateString}
+      </h3>
       <div className={styles.approach_container}>
         <p className={styles.approach}>
-          {Math.ceil(approach.miss_distance.kilometers)} КМ
+          {getDistance(isLun, approach.miss_distance)}
         </p>
         <Image
           className={styles.asteroid_icon}
@@ -56,11 +80,18 @@ function Asteroid({ asteroid, getNewAsteroids, isLast }: IAsteroid) {
         />
         <div>
           <p>{asteroid.name}</p>
-          <p>Ø {diametr} М</p>
+          <p className={styles.diametr}>Ø {diametr} М</p>
         </div>
       </div>
       <div>
-        <button className={styles.button}>Заказать</button>
+        <button
+          onClick={() => callbuck(asteroid)}
+          className={
+            isInCart ? styles.button + " " + styles.active : styles.button
+          }
+        >
+          {isInCart ? "В КОРЗИНЕ" : "ЗАКАЗАТЬ"}
+        </button>
         {asteroid.is_potentially_hazardous_asteroid && <span>⚠️ Опасен</span>}
       </div>
     </div>

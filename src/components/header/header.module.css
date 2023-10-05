@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+.title {
+  margin-bottom: 8px;
+  font-size: 32px;
+  font-stretch: condensed;
+  color: #f86600;
+}

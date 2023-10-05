@@ -1,0 +1,22 @@
+.asteroids {
+  width: var(--content_width);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.title {
+  font-size: 28px;
+}
+
+.measure {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.active {
+  font-weight: 900;
+  text-decoration: underline;
+  transition: all 0.3s;
+}

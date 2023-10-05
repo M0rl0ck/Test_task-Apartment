@@ -5,6 +5,7 @@
 }
 
 :root {
+  --content_width: 400px;
   --approach_arrey_color: grey;
   --approach_arrey_width: 5px;
 }
@@ -30,4 +31,10 @@ a {
 
 li {
   list-style: none;
+}
+
+@media (max-width: 750px) {
+  :root {
+    --content_width: 300px;
+  }
 }
