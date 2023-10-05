@@ -4,7 +4,7 @@
 
 .button_container {
   position: fixed;
-  right: calc((100vw - 700px) / 2);
+  right: calc((100vw - (var(--content_width) * 2 - 100px)) / 2);
 }
 .button_wrapper {
   display: flex;
@@ -24,4 +24,19 @@
   font-size: 16px;
   color: white;
   cursor: pointer;
+}
+
+@media (max-width: 750px) {
+  .button_container {
+    width: 100%;
+    right: auto;
+    left: 0;
+    bottom: 0;
+  }
+
+  .button_wrapper {
+    flex-direction: row;
+    justify-content: flex-end;
+    border-radius: 0;
+  }
 }

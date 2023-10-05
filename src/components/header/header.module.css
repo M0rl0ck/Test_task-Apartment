@@ -8,5 +8,6 @@
 .title {
   margin-bottom: 8px;
   font-size: 32px;
+  font-stretch: condensed;
   color: #f86600;
 }

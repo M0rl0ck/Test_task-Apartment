@@ -22,3 +22,18 @@
   color: white;
   cursor: pointer;
 }
+
+@media (max-width: 750px) {
+  .container {
+    width: 100%;
+    right: auto;
+    left: 0;
+    bottom: 0;
+  }
+
+  .cart {
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 0;
+  }
+}

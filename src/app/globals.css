@@ -32,3 +32,9 @@ a {
 li {
   list-style: none;
 }
+
+@media (max-width: 750px) {
+  :root {
+    --content_width: 300px;
+  }
+}

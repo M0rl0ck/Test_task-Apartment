@@ -29,7 +29,7 @@ function AsteroidId({ params }: IAsteroidId) {
   }, []);
 
   return (
-    <div onClick={() => route.back()}>
+    <div onClick={() => route.back()} className={styles.container}>
       {data ? <Asteroid_page asteroid={data} isLun={isLun} /> : <Loading />}
     </div>
   );

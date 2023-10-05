@@ -15,7 +15,9 @@ function Asteroid_page({ asteroid, isLun }: IAsteroid_page) {
   return (
     <>
       <h2 className={styles.title}>{asteroid.name}</h2>
-      <p className={styles.diametr}>Минимальный размер: {diametr} М.</p>
+      <p className={styles.diametr}>
+        Минимальный размер: <span className={styles.no_wrap}>{diametr} М.</span>
+      </p>
       <p className={styles.dangerous}>
         Опасность:{" "}
         {asteroid.is_potentially_hazardous_asteroid ? (
@@ -31,17 +33,21 @@ function Asteroid_page({ asteroid, isLun }: IAsteroid_page) {
             <li className={styles.approach} key={approach.close_approach_date}>
               <p>
                 Время сближения:{" "}
-                {getFormatFullDate(approach.close_approach_date_full)}
+                <span className={styles.no_wrap}>
+                  {getFormatFullDate(approach.close_approach_date_full)}
+                </span>
               </p>
               <p>
                 Скорость относительно Земли:{" "}
-                {`${
+                <span className={styles.no_wrap}>{`${
                   approach.relative_velocity.kilometers_per_second.split(".")[0]
-                } км/с`}
+                } км/с`}</span>
               </p>
               <p>
                 Дистанция сближения:{" "}
-                {getDistance(isLun, approach.miss_distance)}
+                <span className={styles.no_wrap}>
+                  {getDistance(isLun, approach.miss_distance)}
+                </span>
               </p>
               <p>Орбита вокруг: {approach.orbiting_body}</p>
             </li>
