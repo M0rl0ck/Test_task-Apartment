@@ -18,7 +18,6 @@ export default function Home() {
   const [data, setData] = useState<IAsteroidApproach[]>([]);
   const [newDate, setNewDate] = useState<string>(getDateString(new Date()));
   const [isLoading, setIsLoading] = useState(false);
-  // const [isLun, setIsLun] = useState(false);
   const cartData = useContext(CartDataContext);
   const setCartData = useContext(SetCartDataContext);
   const isLun = useContext(IsLunContext);

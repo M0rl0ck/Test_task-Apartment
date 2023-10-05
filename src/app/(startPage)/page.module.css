@@ -1,5 +1,5 @@
 .asteroids {
-  width: 400px;
+  width: var(--content_width);
   display: flex;
   flex-direction: column;
   gap: 10px;

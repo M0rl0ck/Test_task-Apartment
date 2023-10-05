@@ -1,8 +1,11 @@
+.title {
+  font-size: 28px;
+}
+
 .button_container {
   position: fixed;
   right: calc((100vw - 700px) / 2);
 }
-
 .button_wrapper {
   display: flex;
   flex-direction: column;

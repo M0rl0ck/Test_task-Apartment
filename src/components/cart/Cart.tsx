@@ -15,6 +15,12 @@ function Cart({ cartData }: ICart) {
     setEnding(getEnding(cartData.length));
   }, [cartData.length]);
 
+  const orderHandle = () => {
+    if (cartData.length) {
+      router.push("/order");
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.cart}>
@@ -23,7 +29,7 @@ function Cart({ cartData }: ICart) {
           <p>{`${cartData.length} астероид${ending}`}</p>
         </div>
 
-        <button className={styles.button} onClick={() => router.push("/order")}>
+        <button className={styles.button} onClick={orderHandle}>
           Отправить
         </button>
       </div>

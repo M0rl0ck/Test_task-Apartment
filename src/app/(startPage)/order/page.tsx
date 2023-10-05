@@ -22,7 +22,8 @@ function Order() {
   return (
     <>
       <div>
-        {contentData.map((asteroid: IAsteroidApproach, index) => (
+        <h2 className={styles.title}>Заказ отправлен!</h2>
+        {contentData.map((asteroid: IAsteroidApproach) => (
           <Ordered_asteroid key={asteroid.id} asteroid={asteroid} />
         ))}
       </div>

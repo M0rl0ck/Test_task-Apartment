@@ -6,15 +6,17 @@ import styles from "./asteroid.module.css";
 import { getFormatDateString } from "@/utils/getDate";
 import { useContext } from "react";
 import { IsLunContext } from "@/context/Context";
+import { useRouter } from "next/navigation";
+import { getDistance } from "@/utils/getDistance";
 
 interface IAsteroid {
   asteroid: IAsteroidApproach;
 }
 
 function Ordered_asteroid({ asteroid }: IAsteroid) {
+  const router = useRouter();
   const approach = asteroid.close_approach_data[0];
-  const date = new Date(approach.close_approach_date);
-  const dateString = getFormatDateString(date);
+  const dateString = getFormatDateString(approach.close_approach_date);
   const diametr = Math.ceil(
     asteroid.estimated_diameter.meters.estimated_diameter_min
   );
@@ -22,15 +24,14 @@ function Ordered_asteroid({ asteroid }: IAsteroid) {
   const isLun = useContext(IsLunContext);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container + " " + styles.container_ordered}
+      onClick={() => router.push(`/${asteroid.id}`)}
+    >
       <h3 className={styles.approach_date}>{dateString}</h3>
       <div className={styles.approach_container}>
         <p className={styles.approach}>
-          {isLun
-            ? `${Math.ceil(approach.miss_distance.lunar)} лунных орбит`
-            : `${Math.ceil(approach.miss_distance.kilometers).toLocaleString(
-                "ru"
-              )} км`}
+          {getDistance(isLun, approach.miss_distance)}
         </p>
         <Image
           className={styles.asteroid_icon}

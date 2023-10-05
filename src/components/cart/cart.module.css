@@ -1,6 +1,6 @@
 .container {
   position: fixed;
-  right: calc((100vw - 700px) / 2);
+  right: calc((100vw - (var(--content_width) * 2 - 100px)) / 2);
 }
 
 .cart {
