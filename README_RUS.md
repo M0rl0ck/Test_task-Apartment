@@ -1,8 +1,6 @@
 # Test task Apartment
 
-### [RUS](https://github.com/M0rl0ck/Test_task-Apartment/blob/main/README_RUS.md)
-
-### Это[тестовое задание](https://docs.google.com/document/d/1bSC3hgaYe69FJFKKNFHKokJ2Rs0bxkYQ9ixnBS8xn-M/edit#heading=h.zhvqi4h9zsj2) для [Компании "Квартирка"](https://kvartirka.com/).
+### Это приложение - [тестовое задание](https://docs.google.com/document/d/1bSC3hgaYe69FJFKKNFHKokJ2Rs0bxkYQ9ixnBS8xn-M/edit#heading=h.zhvqi4h9zsj2) для [Компании "Квартирка"](https://kvartirka.com/).
 
 ### [Deploy](https://test-task-apartment.vercel.app/)
 
