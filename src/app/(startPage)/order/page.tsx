@@ -21,12 +21,14 @@ function Order() {
 
   return (
     <>
-      <div>
+      <div className={styles.container}>
         <h2 className={styles.title}>Заказ отправлен!</h2>
         {contentData.map((asteroid: IAsteroidApproach) => (
           <Ordered_asteroid key={asteroid.id} asteroid={asteroid} />
         ))}
+        <div className={styles.indent}></div>
       </div>
+
       <div className={styles.button_container}>
         <div className={styles.button_wrapper}>
           <button className={styles.button} onClick={handlClear}>

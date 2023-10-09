@@ -2,10 +2,18 @@
   flex-grow: 1;
   display: flex;
   justify-content: center;
+  background-image: url("/planeta.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto calc(100% - 180px);
+  background-position: top 140px right
+    calc((100vw + var(--content_width) + 100px) / 2);
 }
 
 @media (max-width: 750px) {
   .main {
     justify-content: end;
+    background-size: auto calc(100% - 220px);
+    background-position: top 120px right calc(var(--content_width) + 20px);
   }
 }
