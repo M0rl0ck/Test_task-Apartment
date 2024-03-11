@@ -24,15 +24,16 @@
 
 ### Add the following key in `.env.local` file:
 
-`NEXT_PUBLIC_NASA_API_KEY=`
+`NEXT_PUBLIC_NASA_API_KEY=YOUR_KEY`
 
 ### Running the app
 
 ```
 $ npm run dev
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-```
+
 
 ### Prepare for production
 
