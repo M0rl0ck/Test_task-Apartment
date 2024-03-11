@@ -9,14 +9,15 @@ interface IAsteroid_page {
 }
 
 function Asteroid_page({ asteroid, isLun }: IAsteroid_page) {
-  const diametr = Math.ceil(
+  const diameter = Math.ceil(
     asteroid.estimated_diameter.meters.estimated_diameter_min
   );
   return (
     <>
       <h2 className={styles.title}>{asteroid.name}</h2>
-      <p className={styles.diametr}>
-        Минимальный размер: <span className={styles.no_wrap}>{diametr} М.</span>
+      <p className={styles.diameter}>
+        Минимальный размер:{" "}
+        <span className={styles.no_wrap}>{diameter} М.</span>
       </p>
       <p className={styles.dangerous}>
         Опасность:{" "}

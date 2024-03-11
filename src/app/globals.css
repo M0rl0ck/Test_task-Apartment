@@ -5,9 +5,9 @@
 }
 
 :root {
-  --content_width: 400px;
-  --approach_arrey_color: grey;
-  --approach_arrey_width: 5px;
+  --content_width: 500px;
+  --approach_array_color: grey;
+  --approach_array_width: 5px;
 }
 
 html,

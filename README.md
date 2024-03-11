@@ -26,7 +26,7 @@
 
 ### Add the following key in `.env.local` file:
 
-`NEXT_PUBLIC_NASA_API_KEY=`
+`NEXT_PUBLIC_NASA_API_KEY=YOUR_KEY`
 
 ### Running the app
 
