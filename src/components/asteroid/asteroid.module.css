@@ -20,7 +20,7 @@
 
 .approach {
   position: relative;
-  border-bottom: 2px solid var(--approach_arrey_color);
+  border-bottom: 2px solid var(--approach_array_color);
   padding-bottom: 0.6em;
 }
 
@@ -31,18 +31,18 @@
   height: 0;
   position: absolute;
   bottom: -6px;
-  border: var(--approach_arrey_width) solid transparent;
+  border: var(--approach_array_width) solid transparent;
 }
 
 .approach::before {
   border-left: 0;
-  border-right-color: var(--approach_arrey_color);
+  border-right-color: var(--approach_array_color);
   left: -1px;
 }
 
 .approach::after {
   border-right: 0;
-  border-left-color: var(--approach_arrey_color);
+  border-left-color: var(--approach_array_color);
   right: -1px;
 }
 
@@ -52,7 +52,7 @@
   margin-right: 10px;
 }
 
-.diametr {
+.diameter {
   font-size: 12px;
 }
 

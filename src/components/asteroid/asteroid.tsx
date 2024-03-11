@@ -14,7 +14,7 @@ interface IAsteroid {
   isLast: boolean;
   isLun: boolean;
   cartData: IAsteroidApproach[];
-  callbuck: (asteroid: IAsteroidApproach) => void;
+  callback: (asteroid: IAsteroidApproach) => void;
 }
 
 function Asteroid({
@@ -23,16 +23,16 @@ function Asteroid({
   isLast,
   isLun,
   cartData,
-  callbuck,
+  callback: callback,
 }: IAsteroid) {
   const router = useRouter();
   const [isInCart, setIsInCart] = useState<boolean>(false);
   const approach = asteroid.close_approach_data[0];
   const dateString = getFormatDateString(approach.close_approach_date);
-  const diametr = Math.ceil(
+  const diameter = Math.ceil(
     asteroid.estimated_diameter.meters.estimated_diameter_min
   );
-  const img_width = diametr > 50 ? 50 : 34;
+  const img_width = diameter > 50 ? 50 : 34;
 
   const asterRef = useRef(null);
 
@@ -80,12 +80,12 @@ function Asteroid({
         />
         <div>
           <p>{asteroid.name}</p>
-          <p className={styles.diametr}>Ø {diametr} М</p>
+          <p className={styles.diameter}>Ø {diameter} М</p>
         </div>
       </div>
       <div>
         <button
-          onClick={() => callbuck(asteroid)}
+          onClick={() => callback(asteroid)}
           className={
             isInCart ? styles.button + " " + styles.active : styles.button
           }

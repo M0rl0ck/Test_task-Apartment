@@ -86,7 +86,7 @@ export default function Home() {
             isLast={index === data.length - 1}
             isLun={isLun}
             cartData={cartData}
-            callbuck={handlOrder}
+            callback={handlOrder}
           />
         ))}
         {isLoading && <Loading />}
