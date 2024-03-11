@@ -21,8 +21,8 @@ function AsteroidId({ params }: IAsteroidId) {
 
   useEffect(() => {
     async function getAsteroid(id: string) {
-      const responce = await fetch(`/api/getAsteroid?id=${id}`);
-      const asteroidData = await responce.json();
+      const response = await fetch(`/api/getAsteroid?id=${id}`);
+      const asteroidData = await response.json();
       setData(asteroidData);
     }
     getAsteroid(params.id);

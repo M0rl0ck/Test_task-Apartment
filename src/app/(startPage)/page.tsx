@@ -44,10 +44,10 @@ export default function Home() {
 
   useEffect(() => {
     async function getAsteroids() {
-      const responce = await fetch(
+      const response = await fetch(
         `/api/getAsteroids?start=${newDate}&end=${newDate}`
       );
-      const data = await responce.json();
+      const data = await response.json();
       return data;
     }
     const getData = async () => {

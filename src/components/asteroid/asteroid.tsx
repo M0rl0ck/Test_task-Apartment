@@ -26,7 +26,6 @@ function Asteroid({
   callback: callback,
 }: IAsteroid) {
   const router = useRouter();
-  const [isInCart, setIsInCart] = useState<boolean>(false);
   const approach = asteroid.close_approach_data[0];
   const dateString = getFormatDateString(approach.close_approach_date);
   const diameter = Math.ceil(
@@ -36,9 +35,7 @@ function Asteroid({
 
   const asterRef = useRef(null);
 
-  useEffect(() => {
-    setIsInCart(cartData.some((el) => el.id === asteroid.id));
-  }, [cartData]);
+  const isInCart = cartData.some((el) => el.id === asteroid.id);
 
   useEffect(() => {
     if (!asterRef?.current) {
@@ -55,7 +52,6 @@ function Asteroid({
         rootMargin: "50px",
       }
     );
-
     observer.observe(asterRef.current);
   }, [getNewAsteroids, isLast]);
 
