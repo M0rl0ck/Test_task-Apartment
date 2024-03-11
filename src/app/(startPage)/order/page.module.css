@@ -13,7 +13,7 @@
 
 .button_container {
   position: fixed;
-  right: calc((100vw - (var(--content_width) * 2 - 100px)) / 2);
+  right: calc((50vw - (var(--content_width) / 2) - 150px));
 }
 .button_wrapper {
   display: flex;

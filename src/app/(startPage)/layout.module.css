@@ -10,10 +10,19 @@
     calc((100vw + var(--content_width) + 60px) / 2);
 }
 
+@media (max-width: 1030px) {
+  .main {
+    background-size: auto calc(100% - 170px);
+    background-position: top 140px right
+      calc((100vw + var(--content_width) - 85px) / 2);
+  }
+}
+
 @media (max-width: 750px) {
   .main {
     justify-content: end;
     background-size: auto calc(100% - 220px);
-    background-position: top 120px right calc(var(--content_width) + 20px);
+    background-position: top 120px right
+      calc((100vw + var(--content_width) - 20px) / 2);
   }
 }
