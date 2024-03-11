@@ -63,7 +63,7 @@ export default function Home() {
     <>
       <div className={styles.asteroids}>
         <h2 className={styles.title}>Ближайшие подлёты астероидов</h2>
-        <p>
+        <p className={styles.dimension}>
           <span
             onClick={() => setIsLun(false)}
             className={isLun ? styles.measure : styles.active}

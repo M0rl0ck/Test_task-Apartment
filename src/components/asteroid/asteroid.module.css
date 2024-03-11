@@ -1,5 +1,6 @@
 .container {
-  margin: 40px 0;
+  margin-bottom: 14px;
+  min-height: 110px;
 }
 
 .container_ordered {
