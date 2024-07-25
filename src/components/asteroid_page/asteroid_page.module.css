@@ -4,7 +4,7 @@
   text-align: center;
 }
 
-.diametr,
+.diameter,
 .dangerous,
 .approach_title {
   padding: 20px 10px;
@@ -44,7 +44,7 @@
 }
 
 @media (max-width: 750px) {
-  .diametr,
+  .diameter,
   .dangerous,
   .approach_title {
     font-size: 20px;

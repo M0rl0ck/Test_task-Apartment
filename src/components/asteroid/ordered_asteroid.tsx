@@ -17,10 +17,10 @@ function Ordered_asteroid({ asteroid }: IAsteroid) {
   const router = useRouter();
   const approach = asteroid.close_approach_data[0];
   const dateString = getFormatDateString(approach.close_approach_date);
-  const diametr = Math.ceil(
+  const diameter = Math.ceil(
     asteroid.estimated_diameter.meters.estimated_diameter_min
   );
-  const img_width = diametr > 50 ? 50 : 34;
+  const img_width = diameter > 50 ? 50 : 34;
   const isLun = useContext(IsLunContext);
 
   return (
@@ -42,7 +42,7 @@ function Ordered_asteroid({ asteroid }: IAsteroid) {
         />
         <div>
           <p>{asteroid.name}</p>
-          <p className={styles.diametr}>Ø {diametr} М</p>
+          <p className={styles.diameter}>Ø {diameter} М</p>
         </div>
       </div>
       <div>

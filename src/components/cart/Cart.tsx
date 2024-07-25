@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./cart.module.css";
 import { getEnding } from "@/utils/getEnding";
@@ -9,11 +8,8 @@ interface ICart {
 }
 
 function Cart({ cartData }: ICart) {
-  const [ending, setEnding] = useState("");
   const router = useRouter();
-  useEffect(() => {
-    setEnding(getEnding(cartData.length));
-  }, [cartData.length]);
+  const ending = getEnding(cartData.length);
 
   const orderHandle = () => {
     if (cartData.length) {

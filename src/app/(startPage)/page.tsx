@@ -44,10 +44,10 @@ export default function Home() {
 
   useEffect(() => {
     async function getAsteroids() {
-      const responce = await fetch(
+      const response = await fetch(
         `/api/getAsteroids?start=${newDate}&end=${newDate}`
       );
-      const data = await responce.json();
+      const data = await response.json();
       return data;
     }
     const getData = async () => {
@@ -63,7 +63,7 @@ export default function Home() {
     <>
       <div className={styles.asteroids}>
         <h2 className={styles.title}>Ближайшие подлёты астероидов</h2>
-        <p>
+        <p className={styles.dimension}>
           <span
             onClick={() => setIsLun(false)}
             className={isLun ? styles.measure : styles.active}
@@ -86,7 +86,7 @@ export default function Home() {
             isLast={index === data.length - 1}
             isLun={isLun}
             cartData={cartData}
-            callbuck={handlOrder}
+            callback={handlOrder}
           />
         ))}
         {isLoading && <Loading />}
